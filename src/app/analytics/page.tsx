@@ -23,16 +23,19 @@ const AnalyticsPage = () => {
   const { data: convoys = [] } = useSWR<Convoy[]>('/api/convoys', fetchConvoys, { refreshInterval: 20000 });
   const mockEvents: OperationEvent[] = convoys
     .flatMap((convoy) =>
-      convoy.assignedRoute?.checkpoints.map((checkpoint) => ({
-        id: `${convoy.id}-${checkpoint.id}`,
-        convoyId: convoy.id,
-        type: 'CHECKPOINT' as OperationEvent['type'],
-        triggeredAt: checkpoint.loggedAt ?? checkpoint.eta,
-        payload: {
-          severity: checkpoint.status === 'CLEARED' ? 'LOW' : 'MEDIUM',
-          notes: checkpoint.name,
-        },
-      })) ?? [],
+      convoy.assignedRoute?.checkpoints.map((checkpoint) => {
+        const severity: OperationEvent['payload']['severity'] = checkpoint.status === 'CLEARED' ? 'LOW' : 'MEDIUM';
+        return {
+          id: `${convoy.id}-${checkpoint.id}`,
+          convoyId: convoy.id,
+          type: 'CHECKPOINT' as OperationEvent['type'],
+          triggeredAt: checkpoint.loggedAt ?? checkpoint.eta,
+          payload: {
+            severity,
+            notes: checkpoint.name,
+          },
+        } satisfies OperationEvent;
+      }) ?? [],
     )
     .slice(0, 6);
 

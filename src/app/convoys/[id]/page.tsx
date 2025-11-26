@@ -1,9 +1,7 @@
-import dynamic from 'next/dynamic';
 import { notFound } from 'next/navigation';
 import convoys from '@/data/mock/convoys.json';
 import type { Convoy } from '@/types/convoy';
-
-const MapContainer = dynamic(() => import('@/components/Map/MapContainer'), { ssr: false });
+import MapContainer from '@/components/Map/MapContainer';
 
 export default function ConvoyDetailPage({ params }: { params: { id: string } }) {
   const convoy = (convoys as Convoy[]).find((entry) => entry.id === params.id.toUpperCase());

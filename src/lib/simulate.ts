@@ -12,8 +12,8 @@ const interpolate = (start: [number, number], end: [number, number], t: number) 
   start[1] + (end[1] - start[1]) * t,
 ] as [number, number];
 
-const coordinateAlongRoute = (route: Route, distancePercent: number) => {
-  if (!route.polyline.length) return [0, 0];
+const coordinateAlongRoute = (route: Route, distancePercent: number): [number, number] => {
+  if (!route.polyline.length) return [0, 0] as [number, number];
   const totalSegments = route.polyline.length - 1;
   if (totalSegments <= 0) return route.polyline[0];
 

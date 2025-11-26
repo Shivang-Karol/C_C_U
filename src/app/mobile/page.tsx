@@ -56,7 +56,9 @@ const MobilePage = () => {
         <CheckpointButton
           convoyId={convoy.id}
           checkpointId={pendingCheckpoint.id}
-          onSubmit={(payload) => api.logCheckpoint(payload)}
+          onSubmit={async (payload) => {
+            await api.logCheckpoint(payload);
+          }}
         />
       )}
     </div>
