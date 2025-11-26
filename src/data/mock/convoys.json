@@ -1,0 +1,150 @@
+[
+  {
+    "id": "CVY-001",
+    "name": "Alpha Spear",
+    "origin": { "lat": 19.076, "lng": 72.8777, "name": "Mumbai HQ" },
+    "destination": { "lat": 28.6139, "lng": 77.209, "name": "Delhi Depot" },
+    "assignedRoute": {
+      "id": "RTE-ALPHA",
+      "name": "Western Freight Corridor",
+      "polyline": [
+        [72.8777, 19.076],
+        [73.8567, 18.5204],
+        [75.7139, 19.9975],
+        [77.4126, 23.2599],
+        [78.9629, 26.9124],
+        [77.209, 28.6139]
+      ],
+      "etaHours": 18,
+      "distanceKm": 1410,
+      "riskScore": 32,
+      "segments": [
+        {
+          "id": "SEG-ALPHA-1",
+          "coordinates": [[72.8777, 19.076], [75.7139, 19.9975]],
+          "terrain": "URBAN",
+          "difficulty": "LOW",
+          "recommendedSpeedKmph": 70,
+          "riskLevel": 0.28,
+          "status": "CLEAR"
+        },
+        {
+          "id": "SEG-ALPHA-2",
+          "coordinates": [[75.7139, 19.9975], [77.209, 28.6139]],
+          "terrain": "MOUNTAIN",
+          "difficulty": "MEDIUM",
+          "recommendedSpeedKmph": 55,
+          "riskLevel": 0.52,
+          "status": "HIGH_RISK"
+        }
+      ],
+      "checkpoints": [
+        { "id": "CHK-ALPHA-1", "name": "Pune FOB", "status": "CLEARED", "eta": "2025-11-26T03:10:00Z", "loggedAt": "2025-11-26T02:55:00Z" },
+        { "id": "CHK-ALPHA-2", "name": "Bhopal Node", "status": "PENDING", "eta": "2025-11-26T11:15:00Z" }
+      ]
+    },
+    "speedKmph": 62,
+    "priority": "ALPHA",
+    "vehicleCount": 24,
+    "status": "EN_ROUTE",
+    "lastUpdated": "2025-11-26T01:30:00Z",
+    "etaHours": 18,
+    "mergeSuggestion": { "withConvoyId": "CVY-003", "payloadSavingsTons": 12, "confidence": 0.82 }
+  },
+  {
+    "id": "CVY-002",
+    "name": "Bravo Shield",
+    "origin": { "lat": 13.0827, "lng": 80.2707, "name": "Chennai Port" },
+    "destination": { "lat": 22.5726, "lng": 88.3639, "name": "Kolkata Airstrip" },
+    "assignedRoute": {
+      "id": "RTE-BRAVO",
+      "name": "Southern Spine",
+      "polyline": [
+        [80.2707, 13.0827],
+        [79.8612, 14.9124],
+        [83.2185, 17.6868],
+        [85.8245, 20.2961],
+        [88.3639, 22.5726]
+      ],
+      "etaHours": 23,
+      "distanceKm": 1675,
+      "riskScore": 44,
+      "segments": [
+        {
+          "id": "SEG-BRAVO-1",
+          "coordinates": [[80.2707, 13.0827], [83.2185, 17.6868]],
+          "terrain": "COASTAL",
+          "difficulty": "LOW",
+          "recommendedSpeedKmph": 65,
+          "riskLevel": 0.35,
+          "status": "CLEAR"
+        },
+        {
+          "id": "SEG-BRAVO-2",
+          "coordinates": [[83.2185, 17.6868], [88.3639, 22.5726]],
+          "terrain": "FOREST",
+          "difficulty": "HIGH",
+          "recommendedSpeedKmph": 45,
+          "riskLevel": 0.67,
+          "status": "HIGH_RISK"
+        }
+      ],
+      "checkpoints": [
+        { "id": "CHK-BRAVO-1", "name": "Vishakhapatnam", "status": "PENDING", "eta": "2025-11-26T05:45:00Z" }
+      ]
+    },
+    "speedKmph": 58,
+    "priority": "BRAVO",
+    "vehicleCount": 18,
+    "status": "PLANNED",
+    "lastUpdated": "2025-11-25T23:10:00Z",
+    "etaHours": 23
+  },
+  {
+    "id": "CVY-003",
+    "name": "Charlie Ember",
+    "origin": { "lat": 26.4499, "lng": 80.3319, "name": "Kanpur Logistics" },
+    "destination": { "lat": 30.3165, "lng": 78.0322, "name": "Dehradun Ridge" },
+    "assignedRoute": {
+      "id": "RTE-CHARLIE",
+      "name": "Central Artery",
+      "polyline": [
+        [80.3319, 26.4499],
+        [79.0193, 27.1767],
+        [78.0322, 30.3165]
+      ],
+      "etaHours": 12,
+      "distanceKm": 520,
+      "riskScore": 18,
+      "segments": [
+        {
+          "id": "SEG-CHARLIE-1",
+          "coordinates": [[80.3319, 26.4499], [79.0193, 27.1767]],
+          "terrain": "URBAN",
+          "difficulty": "LOW",
+          "recommendedSpeedKmph": 70,
+          "riskLevel": 0.12,
+          "status": "CLEAR"
+        },
+        {
+          "id": "SEG-CHARLIE-2",
+          "coordinates": [[79.0193, 27.1767], [78.0322, 30.3165]],
+          "terrain": "MOUNTAIN",
+          "difficulty": "MEDIUM",
+          "recommendedSpeedKmph": 60,
+          "riskLevel": 0.33,
+          "status": "CLEAR"
+        }
+      ],
+      "checkpoints": [
+        { "id": "CHK-CHAR-1", "name": "Lucknow Spur", "status": "CLEARED", "eta": "2025-11-26T04:05:00Z", "loggedAt": "2025-11-26T04:03:00Z" }
+      ]
+    },
+    "speedKmph": 72,
+    "priority": "CHARLIE",
+    "vehicleCount": 12,
+    "status": "EN_ROUTE",
+    "lastUpdated": "2025-11-26T00:40:00Z",
+    "etaHours": 12
+  }
+]

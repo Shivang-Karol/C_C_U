@@ -1,36 +1,73 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## AICC — AI-Driven Convoy & Mobility Command System
 
-## Getting Started
+This repository contains a hackathon-ready frontend that demonstrates a complete command-and-control experience for convoy planners and field leaders. It includes a Mapbox-driven operational picture, mock analytics, simulation controls, and a responsive convoy leader UI.
 
-First, run the development server:
+### Tech Stack
+
+- Next.js App Router (TypeScript)
+- Tailwind CSS v3 (JIT) with a military inspired UI kit (Deep slate `#0f1724`, panel `#111827`, amber `#b58900`, olive `#6b8e23`, danger `#ef4444`, text `#e5e7eb`)
+- Mapbox GL JS for the interactive map (polyline overlays, convoy markers, popups)
+- Mock APIs via Next.js route handlers (convoys, optimizer, events, checkpoint logging)
+- SWR + custom polling bridge for real-time-like updates
+
+### Quick Start
 
 ```bash
+npm install
+cp .env.example .env.local   # fill in NEXT_PUBLIC_MAPBOX_TOKEN
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Visit `http://localhost:3000/dashboard` for the Command Center or `http://localhost:3000/mobile` for the convoy leader UI. The root route redirects to the dashboard automatically.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Environment Variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Create `.env.local` and supply your Mapbox credential:
 
-## Learn More
+```env
+NEXT_PUBLIC_MAPBOX_TOKEN=pk.your-public-token
+```
 
-To learn more about Next.js, take a look at the following resources:
+Without this token the map component renders a step-by-step setup notice instead of failing silently.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Project Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+src/
+	app/
+		dashboard/        # Command dashboard layout, map, analytics
+		mobile/           # Convoy leader responsive view
+		convoys/[id]/     # Mission-focused drill-down page
+		api/              # Mock REST-like endpoints used by the UI
+	components/         # Map, sidebar, analytics, toasts, etc.
+	lib/                # API helper, Mapbox helpers, simulation utilities
+	data/mock/          # JSON fixtures for convoys + roads
+	styles/             # Tailwind global styles
+	types/              # Shared TS models
+```
 
-## Deploy on Vercel
+### Available Scripts
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- `npm run dev` – Start Next.js in development mode with hot reload.
+- `npm run build` – Create an optimized production build.
+- `npm start` – Run the production build locally.
+- `npm run lint` – Lint the project via the Next.js ESLint preset.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Feature Notes & TODOs
+
+- **Mapbox integration**: Live convoy positions are simulated via `src/lib/simulate.ts`. Replace the interval engine with telemetry when available.
+- **Optimizer modal**: `POST /api/optimizer/route` returns mocked OR-Tools output. Wire it to the real optimizer backend and persist its response.
+- **Event simulator**: Buttons publish to `/api/events` which currently echoes payloads. Connect to your realtime broker, or plug in SSE/Socket.IO streams via `createRealtimeBridge` in `src/lib/api.ts`.
+- **Checkpoint logging**: The mobile checkpoint button posts to `/api/checkpoint`. Replace the TODO GPS stub once mobile hardware integration is available.
+
+### Testing & Accessibility
+
+- All actionable controls have `aria-label`s or descriptive text and visible focus indicators (`focus-outline` utility).
+- High-contrast mode toggles brighter map overlays for low-light ops.
+- Skeletons, empty states, and spinner overlays guide the operator during loading/failure modes.
+
+### Assumptions
+
+1. Convoy + road data comes from a planning service; we seed it via `src/data/mock` for now.
+2. Optimizer, event bus, and checkpoint APIs are not yet available, so the route handlers act as placeholders with clear TODO comments.
+3. Realtime telemetry is approximated with polling to keep hackathon setup frictionless; swap the `createRealtimeBridge` helper for websockets when ready.
