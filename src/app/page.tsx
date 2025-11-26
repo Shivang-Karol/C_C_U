@@ -252,16 +252,15 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.1, ease: [0.42, 0, 0.58, 1] }}
               viewport={SECTION_VIEWPORT}
             >
-              <div className="inline-flex items-center gap-2 rounded-full border border-amberCommand/30 bg-amberCommand/10 px-4 py-2 text-xs uppercase tracking-[0.4em] text-amberCommand">
-                AICC · Convoy Orchestration
+              <div className="inline-flex items-center gap-2 rounded-full border border-amberCommand/30 bg-amberCommand/10 px-4 py-2 text-xs uppercase tracking-[0.3em] text-amberCommand">
+                AI-Driven · Convoy Orchestration · Mobility Command System
               </div>
               <h1 className="text-4xl font-semibold leading-tight text-textNeutral lg:text-6xl">
-                OptiConvoy for Northern &amp; Eastern Commands
+                HawkRoute — Adaptive Convoy Intelligence
               </h1>
               <p className="text-base text-textNeutral/80">
-                 AICC is a mobility intelligence layer that enhances how formations plan, monitor, and adapt convoy movement. 
-                 It integrates terrain difficulty, weather volatility, real-time telemetry, and corridor saturation to help commanders
-                 coordinate movement windows, deconflict routes, and maintain operational readiness across challenging terrain.
+                HawkRoute is an AI-assisted mobility layer that enhances how formations plan, monitor, and adapt convoy movement across complex and high-risk terrain. 
+                It blends terrain intelligence, weather volatility, real-time telemetry, and corridor conditions to support safer, faster, and more synchronized operations.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link
@@ -371,9 +370,9 @@ export default function Home() {
               <div className="inline-flex items-center gap-2 rounded-full border border-rose-400/40 bg-rose-400/10 px-4 py-2 text-xs uppercase tracking-[0.4em] text-rose-200">
                 The Problem
               </div>
-              <h2 className="mt-6 text-4xl font-semibold">Static planning collapses in contested terrain</h2>
+              <h2 className="mt-6 text-4xl font-semibold">Mobility planning struggles in fast-changing, high-risk corridors</h2>
               <p className="mt-4 text-base text-textNeutral/80">
-                Northern supply pushes demand real-time intelligence, but legacy processes deliver stale data and conflicting orders.
+                Terrain, weather, and traffic conditions shift faster than legacy movement tools can respond, leading to uncertainty during critical movement windows.
               </p>
             </motion.div>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
@@ -440,9 +439,9 @@ export default function Home() {
               <div className="inline-flex items-center gap-2 rounded-full border border-amberCommand/40 bg-amberCommand/10 px-4 py-2 text-xs uppercase tracking-[0.4em] text-amberCommand">
                 Our Response
               </div>
-              <h2 className="mt-6 text-4xl font-semibold">AI control layer without merging into the ops UI</h2>
+              <h2 className="mt-6 text-4xl font-semibold">A unified mobility intelligence layer for coordinated convoy operations</h2>
               <p className="mt-4 text-base text-textNeutral/80">
-                Modular stack mirrors the reference layout—Hero, Problem, Solution, Features, How it works, Footer—while preserving AICC styling.
+                HawkRoute integrates planning, telemetry, terrain scoring, and real-time risk evaluation into a lightweight architecture designed for both field units and command centers.
               </p>
             </motion.div>
             <div className="grid gap-6 md:grid-cols-3">
