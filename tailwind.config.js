@@ -5,12 +5,12 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        slateDepth: '#080f1a',
-        panelNight: '#0f1724',
-        amberCommand: '#00c8ff',
-        oliveAux: '#18c0a6',
-        dangerAlert: '#ef4444',
-        textNeutral: '#f5f7fb',
+        slateDepth: 'hsl(75, 15%, 8%)',
+        panelNight: 'hsl(60, 8%, 18%)',
+        amberCommand: 'hsl(25, 85%, 55%)',
+        oliveAux: 'hsl(75, 35%, 45%)',
+        dangerAlert: 'hsl(0, 75%, 55%)',
+        textNeutral: 'hsl(60, 5%, 95%)',
       },
       fontSize: {
         xs: ['0.75rem', '1.15rem'],

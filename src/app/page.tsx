@@ -2,89 +2,105 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 const heroStats = [
-  { label: 'Conflict Reduction', value: '65%', detail: 'Fewer choke-point clashes once AICC is deployed' },
-  { label: 'Faster Convoys', value: '3h', detail: 'Average time saved per high-altitude push' },
-  { label: 'Live Corridors', value: '42', detail: 'Simultaneous road segments under command' },
+  {
+    label: 'Convoy Conflicts Avoided',
+    value: '72%',
+    detail: 'Choke-point deconfliction through live route timing & saturation forecasting.',
+  },
+  {
+    label: 'Operational Time Saved',
+    value: '3.4h',
+    detail: 'Per long-haul supply push on high-risk corridors across J&K and Arunachal.',
+  },
+  {
+    label: 'Active Corridors',
+    value: '58',
+    detail: 'Simultaneous road segments monitored with terrain, weather & BRO advisories.',
+  },
 ];
 
 const problemStatements = [
   {
-    title: 'Chokepoint Chaos',
-    detail: 'Multiple corps attempt the same pass with zero coordination, creating multi-hour gridlock and exposure.',
+    title: 'Uncoordinated Corridor Usage',
+    detail:
+      'Independent planning by units causes two or more convoys to hit the same tunnel section or bridge within minutes, creating hours of immobilization.',
   },
   {
-    title: 'Weather Blind Spots',
-    detail: 'Slides, fog, and avalanches erase the best plan in minutes with no live telemetry to adjust routing.',
+    title: 'Terrain & Weather Volatility',
+    detail:
+      'Landslides, avalanches, fog, and washouts overturn static plans instantly, without live feeds reaching upstream formations.',
   },
   {
-    title: 'Manual Checkpoints',
-    detail: 'Paper logs never reach HQ on time, so road-space allotments are based on guesswork.',
+    title: 'Slow Checkpoint Visibility',
+    detail:
+      'Paper-based checkpoint updates take hours to propagate, causing stale situational awareness for commanders and logistics staff.',
   },
   {
-    title: 'Fragmented Systems',
-    detail: 'BRO, CAPF, and Army cells operate different tools, preventing a single source of operational truth.',
+    title: 'Fragmented Information Systems',
+    detail:
+      'Army, BRO, CAPF, and civil authorities operate disjointed systems, preventing a unified operational picture or synchronized movement control.',
   },
 ];
 
 const techStack = [
   {
-    label: 'Terrain Intelligence',
+    label: 'Terrain Intelligence Engine',
     abbr: 'TI',
-    description: 'Fuses elevation, weather, and civilian traffic feeds to predict viable corridors every hour.',
+    description: 'Combines elevation, slope, weather cells, and civilian flow to assign suitability scores to each road segment in real time.',
   },
   {
-    label: 'Telemetry Bridge',
-    abbr: 'TB',
-    description: 'Streams convoy positions, checkpoint logs, and alerts through a hardened FastAPI/SSE mesh.',
+    label: 'Telemetry & Checkpoint Mesh',
+    abbr: 'TM',
+    description: 'Processes convoy GPS, checkpoint logs, and event triggers through FastAPI + SSE for low-bandwidth, high-reliability operations.',
   },
   {
-    label: 'Optimizer Core',
-    abbr: 'OC',
-    description: 'OR-Tools powered rerouting engine with commander approval and auto rollback.',
+    label: 'Optimization Kernel',
+    abbr: 'OK',
+    description: 'OR-Tools powered scoring engine that generates route options, deconflicts timings, and proposes merges or staggered movement windows.',
   },
 ];
 
 const keyCapabilities = [
-  'Real-time deconfliction of Zoji La, Sela, and Siliguri corridors',
-  'Event simulation lab for landslides, advisories, and convoy merges',
-  'Distributed mobile logging that syncs when SATCOM returns',
-  'Audit-ready timeline for tri-service coordination',
+  'Predictive choke-point deconfliction across Zoji La, Sela, Sevoke and other critical passes.',
+  'Scenario lab for simulating obstruction events, weather shifts, and convoy merging logic.',
+  'Offline-capable checkpoint and incident logging synced automatically on connectivity return.',
+  'Unified tri-service and inter-agency view for BRO, Army, CAPF with audit-ready timelines.',
 ];
 
 const featureCards = [
   {
     title: 'Operational Picture',
-    copy: 'Unified dashboard for HQ, BRO, and CAPF cells with road segments, convoy timelines, and alerts.',
+    copy: 'Map-based command panel integrating convoys, road conditions, chokepoints, advisories, and real-time alerts into one unified view.',
     demo: '/dashboard',
     docs: '#picture',
   },
   {
     title: 'Simulation & Events',
-    copy: 'Inject weather, blockages, and congestion to rehearse responses before issuing live orders.',
+    copy: 'Test reroute logic, landslides, blockages, civilian surges, and weather overlays before applying decisions to live movements.',
     demo: '/events',
     docs: '#events',
   },
   {
     title: 'Fleet Analytics',
-    copy: 'Detect chronic delays, fuel waste, and preload suggestions for merge candidates.',
+    copy: 'Analyze historical delays, idle time, missed windows, fuel inefficiencies, and identify repeat bottlenecks.',
     demo: '/analytics',
     docs: '#analytics',
   },
   {
     title: 'Mobile Checkpoints',
-    copy: 'Offline-first reporting for convoy leaders with automatic sync to HQ feeds.',
+    copy: 'Convoy leaders log departures, arrivals, and incidents with offline-first sync to HQ feeds and instant publishing upstream.',
     demo: '/mobile',
     docs: '#mobile',
   },
   {
     title: 'Risk Desk',
-    copy: 'Conflict triage for blocked corridors, high-risk routes, and merge advisories.',
+    copy: 'Automated detection of route conflicts, saturation alerts, risk scoring, and recommended holds or merge windows.',
     demo: '/conflicts',
     docs: '#conflicts',
   },
   {
-    title: 'Optimizer Mesh',
-    copy: 'AI-assisted reroute recommendations with commander sign-off workflow and rollback.',
+    title: 'Optimization Mesh',
+    copy: 'AI-assisted rerouting engine offering alternate corridors, ETAs, and convoy merges with commander approval workflow.',
     demo: '#optimizer',
     docs: '#optimizer-docs',
   },
@@ -94,22 +110,22 @@ const workflowSteps = [
   {
     step: '01',
     title: 'Sense',
-    copy: 'Ingest satellite weather, BRO advisories, and convoy telemetry for a live operational picture.',
+    copy: 'Ingest telemetry, checkpoints, BRO advisories, weather layers, and terrain difficulty for a continuously updated operational picture.',
   },
   {
     step: '02',
     title: 'Decide',
-    copy: 'Optimizer Core evaluates options, factoring terrain, unit priority, and choke-point saturation.',
+    copy: 'Optimization Kernel evaluates corridors using terrain scores, saturation limits, unit priority, and time windows.',
   },
   {
     step: '03',
     title: 'Act',
-    copy: 'Commanders approve reroutes, merges, or holds with a single tap and share with subordinate formations.',
+    copy: 'Commanders approve reroutes, merges, staggered timings, or holds, and updates propagate instantly across formations.',
   },
   {
     step: '04',
     title: 'Learn',
-    copy: 'Analytics surfaces delays, conflicts, and savings to improve the next convoy cycle.',
+    copy: 'Analytics identifies recurring delays, inefficiencies, and corridor stress, improving future mobility cycles.',
   },
 ];
 
@@ -131,8 +147,8 @@ export default function Home() {
     <div className="bg-slateDepth text-textNeutral">
       <main className="relative overflow-hidden">
         <section className="relative flex min-h-screen flex-col justify-center overflow-hidden px-6 py-20">
-          <div className="absolute inset-0 bg-gradient-to-b from-panelNight/60 via-panelNight/30 to-slateDepth" />
-          <div className="absolute inset-0 bg-gradient-mesh opacity-70" />
+          <div className="absolute inset-0 bg-gradient-to-b from-panelNight/40 via-panelNight/20 to-slateDepth" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(251,191,36,0.12),_transparent_60%)]" />
           <div className="relative z-10 mx-auto grid w-full max-w-6xl gap-10 lg:grid-cols-2 lg:items-center">
             <div className="space-y-8">
               <div className="inline-flex items-center gap-2 rounded-full border border-amberCommand/30 bg-amberCommand/10 px-4 py-2 text-xs uppercase tracking-[0.4em] text-amberCommand">
@@ -150,14 +166,14 @@ export default function Home() {
                   href="/dashboard"
                   className="rounded-full bg-amberCommand px-6 py-3 text-sm font-semibold uppercase tracking-wide text-black shadow-command"
                 >
-                  Enter Dashboard
+       Enter Dashboard
                 </Link>
-                <Link
+                <a
                   href="#solution"
                   className="rounded-full border border-textNeutral/30 px-6 py-3 text-sm font-semibold text-textNeutral hover:border-amberCommand/40"
                 >
                   View Solution Stack
-                </Link>
+                </a>
               </div>
               <div className="grid gap-6 border-t border-panelNight/40 pt-8 sm:grid-cols-3">
                 {heroStats.map((stat) => (
@@ -169,21 +185,36 @@ export default function Home() {
                 ))}
               </div>
             </div>
-            <div className="relative hidden lg:block">
-              <div className="absolute inset-0 bg-amberCommand/10 blur-3xl" aria-hidden />
-              <div className="relative rounded-3xl border border-panelNight/40 bg-panelNight/70 p-4">
+            <div className="relative hidden space-y-6 lg:block">
+              <div className="relative rounded-3xl border border-panelNight/50 bg-panelNight/60 p-2 shadow-2xl">
+                <div className="absolute inset-0 rounded-3xl bg-amberCommand/10 blur-3xl" aria-hidden="true" />
                 <Image
-                  src="/hero-tracking.jpg"
-                  alt="Convoy tracking visualization"
+                  src="/opticonvoy.jpg"
+                  alt="OptiConvoy operational visualization"
                   width={960}
                   height={720}
                   priority
-                  className="h-full w-full rounded-2xl object-cover"
+                  className="relative rounded-[22px] border border-panelNight/60 object-cover"
                 />
-                <div className="absolute -bottom-6 -right-6 w-48 rounded-2xl border border-panelNight/40 bg-panelNight/80 p-4 text-sm shadow-command">
-                  <p className="text-xs uppercase text-textNeutral/50">Convoys monitored</p>
-                  <p className="text-2xl font-semibold text-amberCommand">1,247</p>
-                  <p className="text-textNeutral/70">Active corridors synced via Event Lab feed</p>
+              </div>
+              <div className="relative rounded-3xl border border-panelNight/50 bg-panelNight/60 p-8">
+                <div className="space-y-4 text-sm">
+                  <p className="text-xs uppercase text-textNeutral/50">Live inject feed</p>
+                  <div className="space-y-3">
+                    {[ 'Landslide advisory issued for Zoji La', 'Convoy BRAVO-21 cleared Merge Window 4', 'Optimizer suggestion: hold CAPF North until BRO clears debris' ].map((item) => (
+                      <div key={item} className="rounded-2xl border border-panelNight/40 bg-slateDepth/70 p-4">
+                        {item}
+                      </div>
+                    ))}
+                  </div>
+                  <p className="text-xs text-textNeutral/50">Mirrors the Event Lab layout without exposing live ops.</p>
+                </div>
+                <div className="mt-6">
+                  <div className="w-full rounded-2xl border border-oliveAux/40 bg-oliveAux/10 p-4 text-xs text-oliveAux/80">
+                    <p className="text-[10px] uppercase">Road-space quota</p>
+                    <p className="text-lg font-semibold text-oliveAux">82% scheduled</p>
+                    <p>Remaining: 5 columns</p>
+                  </div>
                 </div>
               </div>
             </div>

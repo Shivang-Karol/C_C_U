@@ -1,24 +1,24 @@
 @import "tailwindcss";
 
 :root {
-  --background: 220 20% 7%;
-  --foreground: 210 40% 98%;
+  --background: 75 15% 8%;
+  --foreground: 60 5% 95%;
 
-  --card: 220 18% 10%;
-  --card-foreground: 210 40% 98%;
+  --card: 75 12% 12%;
+  --card-foreground: 60 5% 95%;
 
-  --popover: 220 18% 12%;
-  --popover-foreground: 210 40% 98%;
+  --popover: 75 12% 12%;
+  --popover-foreground: 60 5% 95%;
 
-  --muted: 220 15% 15%;
-  --muted-foreground: 215 20% 70%;
+  --muted: 60 8% 18%;
+  --muted-foreground: 60 5% 70%;
 
-  --border: 220 15% 20%;
-  --ring: 195 100% 50%;
+  --border: 75 10% 25%;
+  --ring: 75 35% 45%;
 
-  --gradient-mesh: radial-gradient(at 0% 0%, hsla(195, 100%, 45%, 0.35) 0, transparent 50%),
-    radial-gradient(at 100% 0%, hsla(210, 100%, 45%, 0.2) 0, transparent 60%),
-    radial-gradient(at 50% 100%, hsla(180, 90%, 35%, 0.25) 0, transparent 55%);
+  --gradient-mesh: radial-gradient(at 0% 0%, hsla(75, 25%, 15%, 0.4) 0, transparent 50%),
+    radial-gradient(at 100% 100%, hsla(25, 65%, 25%, 0.3) 0, transparent 50%),
+    radial-gradient(at 50% 50%, hsla(60, 15%, 20%, 0.2) 0, transparent 70%);
 }
 
 @theme inline {
@@ -32,6 +32,12 @@ body {
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
   font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background-image: var(--gradient-mesh);
+}
+
+html,
+body {
+  scroll-behavior: smooth;
 }
 
 .bg-gradient-mesh {
